@@ -12,12 +12,12 @@ import selectReact from './lib/react.js'
 
 commander
 .version("1.0.0", "-v, --version")
-.command('init <name>').description('请初始化项目').action(async(name, desc) => {
+.command('create <name>').description('请初始化项目').action(async(name, desc) => {
     if(!fs.existsSync(name)){
         const frameWork = await selectFrameWork();
         switch (frameWork.frameWork){
             case 'Vue':
-                selectVue();
+                selectVue(name);
                 break;
             case 'Flutter':
                 selectFlutter();
@@ -28,6 +28,16 @@ commander
         }
     } else {
         console.log(logSymbols.error,`${name} is exits`)
+        inquirer.prompt([{
+            type: 'confirm',
+            message: '文件夹已存在，是否覆盖当前文件夹',
+            name: 'replace'
+        }]).then(res => {
+            if(res.replace){
+                
+            }
+        });
+        
         return;
     }
 })
@@ -37,4 +47,4 @@ commander
 
 
 
-commander.parse(process.argv)
+commander.parse(process.argv) 
