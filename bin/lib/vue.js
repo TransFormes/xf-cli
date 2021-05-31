@@ -3,8 +3,7 @@ import inquirer from 'inquirer';
 import download from 'download-git-repo'
 import ora from 'ora';
 import logSymbols from 'log-symbols';
-import nodegit from 'nodegit'
-import path from 'path'
+import chalk from 'chalk';
 
 export default async function selectVue(name){
     const vueVersion = await inquirer.prompt([
@@ -20,15 +19,17 @@ export default async function selectVue(name){
         console.log(name);
         if(temp.temp === 'admin'){
             const spinner = ora('正在下载模板...')
+            spinner.start();
             // nodegit.Clone('https://github.com/TransFormes/xf-cli.git#master', __filename).then(res => {
             //     console.log(res);
             // })
-            download('https://github.com:TransFormes/xf-cli#ma',name, {clone: true}, err => {
+            download('https://gitee.com:huruilin/vue-vant-c#master',name, {clone: true}, err => {
                 if(!err){
                     spinner.succeed();
                     console.log(logSymbols.success, '模板初始化完成');
                 } else {
-                    console.log(logSymbols.error, err);
+                    spinner.fail();
+                    console.log(logSymbols.error, chalk.red(err));
                 }
             })
         }
