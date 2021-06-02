@@ -16,14 +16,13 @@ export default async function selectVue(name){
     ]);
     if(vueVersion.vueVersion === 'vue3'){
         const temp = await selectTemplate();
-        console.log(name);
         if(temp.temp === 'admin'){
             const spinner = ora('正在下载模板...')
             spinner.start();
             // nodegit.Clone('https://github.com/TransFormes/xf-cli.git#master', __filename).then(res => {
             //     console.log(res);
             // })
-            download('https://gitee.com:huruilin/vue-vant-c#master',name, {clone: true}, err => {
+            download('github:TransFormes/vueAdmin#master',name, {clone: true}, err => {
                 if(!err){
                     spinner.succeed();
                     console.log(logSymbols.success, '模板初始化完成');

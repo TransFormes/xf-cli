@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
+import fs from 'fs-extra'
 import commander from 'commander'
 import chalk from 'chalk'
 import inquirer from 'inquirer'
@@ -21,7 +21,7 @@ commander
             name: 'replace'
         }]);
         if(res.replace){
-            fs.rmdirSync(name)
+            await fs.remove('/vue3')
         }
     }
     const frameWork = await selectFrameWork();
@@ -30,10 +30,10 @@ commander
                 selectVue(name);
                 break;
             case 'Flutter':
-                selectFlutter();
+                selectFlutter(name);
                 break;
             case 'React':
-                selectReact();
+                selectReact(name);
                 break;
         }
 })
