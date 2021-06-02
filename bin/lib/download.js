@@ -2,7 +2,6 @@ import download from 'download-git-repo'
 import ora from 'ora'
 import logSymbols from 'log-symbols'
 import chalk from 'chalk'
-import shell from 'shelljs'
 
 
 export default function downloadFn(url, name){
