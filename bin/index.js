@@ -2,7 +2,6 @@
 
 import fs from 'fs-extra'
 import commander from 'commander'
-import chalk from 'chalk'
 import inquirer from 'inquirer'
 import logSymbols from 'log-symbols'
 import selectFrameWork from './lib/selectFramework.js'
@@ -12,7 +11,7 @@ import selectReact from './lib/react.js'
 
 commander
 .version("1.0.0", "-v, --version")
-.command('create <name>').description('请初始化项目').action(async(name, desc) => {
+.command('create <name>').description('初始化项目').action(async(name, desc) => {
     if(fs.existsSync(name)){
         console.log(logSymbols.error,`${name} is exits`)
         const res = await inquirer.prompt([{
@@ -21,7 +20,9 @@ commander
             name: 'replace'
         }]);
         if(res.replace){
-            await fs.remove('/vue3')
+            await fs.remove(`${name}`)
+        }else {
+            process.exit(1)
         }
     }
     const frameWork = await selectFrameWork();
@@ -37,10 +38,5 @@ commander
                 break;
         }
 })
-
-
-
-
-
 
 commander.parse(process.argv) 

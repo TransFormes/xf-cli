@@ -17,7 +17,6 @@
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
     "download-git-repo": "^3.0.2",
-    "element-plus": "^1.0.2-beta.45",
     "fs-extra": "^10.0.0",
     "inquirer": "^8.1.0",
     "log-symbols": "^5.0.0",
