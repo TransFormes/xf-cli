@@ -4,10 +4,10 @@ import fs from 'fs-extra'
 import commander from 'commander'
 import inquirer from 'inquirer'
 import logSymbols from 'log-symbols'
-import selectFrameWork from './lib/selectFramework.js'
-import selectVue from './lib/vue.js'
-import selectFlutter from './lib/flutter.js'
-import selectReact from './lib/react.js'
+import selectFrameWork from '../lib/selectFramework.js'
+import selectVue from '../lib/vue.js'
+import selectFlutter from '../lib/flutter.js'
+import selectReact from '../lib/react.js'
 
 commander
 .version("1.0.0", "-v, --version")
