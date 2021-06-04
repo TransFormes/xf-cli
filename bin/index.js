@@ -8,10 +8,9 @@ import selectFrameWork from '../lib/selectFramework.js'
 import selectVue from '../lib/vue.js'
 import selectFlutter from '../lib/flutter.js'
 import selectReact from '../lib/react.js'
-import packageJson from '../package.json'
 
 commander
-.version(packageJson.version, "-v, --version")
+.version('1.0.0', "-v, --version")
 .command('create <name>').description('初始化项目').action(async(name, desc) => {
     if(fs.existsSync(name)){
         console.log(logSymbols.error,`${name} is exits`)
