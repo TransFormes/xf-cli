@@ -1,5 +1,5 @@
 {
-  "name": "xf-cli",
+  "name": "@xf/cli",
   "version": "1.0.0",
   "description": "xf-cli",
   "main": "index.js",
@@ -7,12 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "xf": "./bin/index.js"
+    "xf": "bin/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
