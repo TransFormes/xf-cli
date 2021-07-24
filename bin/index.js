@@ -21,9 +21,7 @@ const path = require('path')
 // import pck from './../package.json'
 const pck = require('./../package.json')
 
-commander.option('-d,  <name>', '111e', 'blue').action((name) => {
-    console.log(name);
-})
+commander
 .version(pck.version, "-v, --version", 'verion')
 .command('create <name>').description('初始化项目').action(async(name, desc) => {
     if(fs.existsSync(name)){
